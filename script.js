@@ -1,3 +1,17 @@
+// FEATURES
+// Rock button, paper button, scissors button
+// Score display 
+// Reset button
+// Win/lose round display
+// Win/lose game display
+// round animation display
+// countdown animation display
+
+
+
+
+
+
 // const elem = document.getElementById("test");
 
 // elem.onclick = () => {
@@ -51,43 +65,3 @@
 //   console.log(playRound(playerSelection, computerSelection));
 // }
 
-// GAME MECHANICS
-
-let playerScore = 0;
-let computerScore = 0;
-let roundWinner = '';
-
-function playRound(playerSelection, computerSelection) {};
-
-function getRandomChoice() {};
-
-function isGameOver() {};
-
-// UI
-
-// const name = document.getElementById('name');
-// const name = document.getElementById('name');
-// const name = document.getElementById('name');
-// const name = document.getElementById('name');
-// const name = document.getElementById('name');
-
-// BUTTONS
-// btn.addEventListener('click', () => handleClick('Rock'));
-// btn.addEventListener('click', () => handleClick('Rock'));
-// btn.addEventListener('click', () => handleClick('Rock'));
-
-function handleClick(playerSelection) {};
-
-function updateChoices(playerSelection, computerSelection) {};
-
-function updateScore() {};
-
-function updateScoreMessage(winner, playerSelection, computerSelection) {};
-
-function openEndGameModal() {};
-
-function closeEndGameModal() {};
-
-function setFinalMessage() {};
-
-function restartGame() {};
