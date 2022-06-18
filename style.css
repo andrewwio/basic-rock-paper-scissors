@@ -13,6 +13,25 @@ p {
   text-align: center;
 }
 
+.game-result__container {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+
+.score__container {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+.score {
+  display: inline-block;
+  text-align: center;
+}
 
 .player-selection__container {
   position: absolute;
@@ -26,16 +45,12 @@ p {
   text-align: center;
 }
 
-.score__container {
+.round-result__container {
   position: absolute;
   left: 50%;
-  top: 15%;
+  top: 40%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
-}
-.score {
-  display: inline-block;
-  text-align: center;
 }
 
 .reset {
