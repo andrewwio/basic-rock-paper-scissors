@@ -43,6 +43,10 @@ p {
 .player-selection {
   display: inline-block;
   text-align: center;
+  width: 100px;
+}
+.player-selection button {
+  width: 100%;
 }
 
 .round-result__container {
