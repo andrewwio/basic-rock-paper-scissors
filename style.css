@@ -37,3 +37,11 @@ p {
   display: inline-block;
   text-align: center;
 }
+
+.reset {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
