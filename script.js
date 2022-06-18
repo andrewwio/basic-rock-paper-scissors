@@ -7,7 +7,24 @@
 // round animation display
 // countdown animation display
 
+// const gameplay = document.getElementById("gameplay");
+// const lets = document.getElementById("lets");
 
+// lets.onclick = () => {
+//   gameplay.style.display = "block";
+// }
+
+const gameplay = document.getElementById("gameplay");
+const lets = document.getElementById("lets");
+
+lets.onclick = () => {
+  displayGamePlay();
+}
+
+function displayGamePlay() {
+  document.getElementById("gameplay").style.display = 'block';
+  document.getElementById("lets").style.display = 'none';
+}
 
 
 

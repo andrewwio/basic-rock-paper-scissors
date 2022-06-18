@@ -8,46 +8,45 @@
   <title>Document</title>
 </head>
 <body>
-  <body>
-    <div class="start-screen__container">
+    <div class="start-screen__container" id="start-screen__container">
       <div class="title start-screen">Welcome to <br /> THE ROCK PAPER SCISSORS GAME</div>
       <div class="lets-play__btn start-screen">
-        <button>Let's Play!</button>
+        <button id="lets">Let's Play!</button>
       </div>
     </div>
     <div class="game-result__container">
       Game result display
     </div>
-    <div class="score__container">
-      <div class="player-score score">
-        Player Score - 0
+    <div class="gameplay" id="gameplay">
+      <div class="score__container">
+        <div class="player-score score">
+          Player Score - 0
+        </div>
+        <div class="computer-score score">
+          Computer Score - 0
+        </div>
       </div>
-      <div class="computer-score score">
-        Computer Score - 0
+      <div class="round-result__container">
+        Countdown, selection, result
+      </div>
+      <div class="player-selection__container">
+        <div class="rock player-selection">
+          <div class="rock">✊</div>
+          <button>Rock</button>
+        </div>
+        <div class="paper player-selection">
+          <div class="paper">✋</div>
+          <button>Paper</button>
+        </div>
+        <div class="scissors player-selection">
+          <div class="scissors">✌</div>
+          <button>Scissors</button>
+        </div>
+      </div>
+      <div class="reset">
+        <button>Reset</button>
       </div>
     </div>
-    <div class="round-result__container">
-      Countdown, selection, result
-    </div>
-    <div class="player-selection__container">
-      <div class="rock player-selection">
-        <div class="rock">✊</div>
-        <button>Rock</button>
-      </div>
-      <div class="paper player-selection">
-        <div class="paper">✋</div>
-        <button>Paper</button>
-      </div>
-      <div class="scissors player-selection">
-        <div class="scissors">✌</div>
-        <button>Scissors</button>
-      </div>
-    </div>
-    <div class="reset">
-      <button>Reset</button>
-    </div>
-    
-  </body>
   <script type="text/javascript" src="/script.js"></script>
 </body>
 </html>
