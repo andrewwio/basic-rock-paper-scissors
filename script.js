@@ -1,7 +1,7 @@
 // FEATURES
 // Rock button, paper button, scissors button
 // Score display 
-// Reset button
+// Reset/start button
 // Win/lose round display
 // Win/lose game display
 // round animation display
