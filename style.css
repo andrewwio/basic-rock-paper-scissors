@@ -1,3 +1,39 @@
 p {
   font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.start-screen__container {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+.start-screen {
+  text-align: center;
+}
+
+
+.player-selection__container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+.player-selection {
+  display: inline-block;
+  text-align: center;
+}
+
+.score__container {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+.score {
+  display: inline-block;
+  text-align: center;
+}
