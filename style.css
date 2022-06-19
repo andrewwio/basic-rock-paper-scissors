@@ -8,6 +8,7 @@ p {
   top: 25%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
+  display: block;
 }
 .start-screen {
   text-align: center;
@@ -22,7 +23,7 @@ p {
   display: none;
 }
 
-.gameplay {
+.gameplay__container {
   display: none;
 }
 

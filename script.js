@@ -7,23 +7,13 @@
 // round animation display
 // countdown animation display
 
-// const gameplay = document.getElementById("gameplay");
-// const lets = document.getElementById("lets");
-
-// lets.onclick = () => {
-//   gameplay.style.display = "block";
-// }
-
-const gameplay = document.getElementById("gameplay");
-const lets = document.getElementById("lets");
-
-lets.onclick = () => {
-  displayGamePlay();
+document.querySelector(".start-screen__btn").onclick = () => {
+  displayGamePlayContainer();
 }
 
-function displayGamePlay() {
-  document.getElementById("gameplay").style.display = 'block';
-  document.getElementById("lets").style.display = 'none';
+function displayGamePlayContainer() {
+document.querySelector(".gameplay__container").style.display = 'block';
+document.querySelector(".start-screen__container").style.display = 'none';
 }
 
 
