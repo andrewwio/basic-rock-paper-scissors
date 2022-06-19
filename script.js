@@ -56,9 +56,7 @@ function computerPlay() {
   }
 }
 
-document.querySelector(".rock").onclick = () => {
-  console.log(computerPlay());
-}
+
 
 let playerScore = 0;
 let computerScore = 0;
@@ -84,4 +82,25 @@ function playRound(playerSelection, computerSelection) {
     return "You lose..."
   }
   updateScore(playerSelection, computerSelection)
+}
+
+document.querySelector(".rock").onclick = () => {
+  let playerSelection = 'Rock';
+  computerSelection = computerPlay();
+  playRound();
+  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
+}
+
+document.querySelector(".paper").onclick = () => {
+  let playerSelection = 'Paper';
+  computerSelection = computerPlay();
+  playRound();
+  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
+}
+
+document.querySelector(".scissors").onclick = () => {
+  let playerSelection = 'Scissors';
+  computerSelection = computerPlay();
+  playRound();
+  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
 }
