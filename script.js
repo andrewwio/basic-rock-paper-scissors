@@ -23,20 +23,24 @@ countdownSlides[7] = "you WIN || you lose...";
 
 function countdown(){
 	document.querySelector(".countdown").innerHTML = countdownSlides[i];
-
-	if (i == 7){
-    return;	  
-	} 
-  i++
-	setTimeout("countdown()", time);
+	if (i >= 7) {
+    return;
+  } 
+  i++;
+  setTimeout("countdown()", time);
 }
 
 
 
-document.querySelector(".start-screen__btn").onclick = () => {
+// document.querySelector(".start-screen__btn").onclick = () => {
+//   displayGamePlayContainer();
+//   countdown();
+// }
+
+document.querySelector(".start-screen__btn").addEventListener("click", () => {
   displayGamePlayContainer();
   countdown();
-}
+});
 
 function displayGamePlayContainer() {
 document.querySelector(".gameplay__container").style.display = 'block';
@@ -84,23 +88,26 @@ function playRound(playerSelection, computerSelection) {
   updateScore(playerSelection, computerSelection)
 }
 
-document.querySelector(".rock").onclick = () => {
+document.querySelector(".rock").addEventListener("click", () => {
   let playerSelection = 'Rock';
   computerSelection = computerPlay();
+
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
-}
+});
 
-document.querySelector(".paper").onclick = () => {
+document.querySelector(".paper").addEventListener("click", () => {
   let playerSelection = 'Paper';
   computerSelection = computerPlay();
+
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
-}
+});
 
-document.querySelector(".scissors").onclick = () => {
+document.querySelector(".scissors").addEventListener("click", () => {
   let playerSelection = 'Scissors';
   computerSelection = computerPlay();
+
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
-}
+});
