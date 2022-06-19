@@ -30,13 +30,6 @@ function countdown(){
   setTimeout("countdown()", time);
 }
 
-
-
-// document.querySelector(".start-screen__btn").onclick = () => {
-//   displayGamePlayContainer();
-//   countdown();
-// }
-
 document.querySelector(".start-screen__btn").addEventListener("click", () => {
   displayGamePlayContainer();
   countdown();
@@ -58,6 +51,11 @@ function computerPlay() {
   else if (randomChoice % 3 === 2) {
     return 'Scissors';
   }
+}
+
+function updateScore() {
+  document.querySelector(".player-score").innerHTML = `Player Score - ${playerScore}`;
+  document.querySelector(".computer-score").innerHTML = `Computer Score - ${computerScore}`;
 }
 
 
@@ -85,7 +83,7 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     return "You lose..."
   }
-  updateScore(playerSelection, computerSelection)
+  updateScore(playerSelection, computerSelection);
 }
 
 document.querySelector(".rock").addEventListener("click", () => {
@@ -93,7 +91,8 @@ document.querySelector(".rock").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
+  updateScore();
+  console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
 });
 
 document.querySelector(".paper").addEventListener("click", () => {
@@ -101,7 +100,8 @@ document.querySelector(".paper").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
+  updateScore();
+  console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
 });
 
 document.querySelector(".scissors").addEventListener("click", () => {
@@ -109,5 +109,7 @@ document.querySelector(".scissors").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  console.log(playRound(playerSelection, computerSelection), playerSelection, computerSelection);
+  updateScore();
+  console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
 });
+
