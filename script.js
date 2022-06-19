@@ -7,8 +7,35 @@
 // round animation display
 // countdown animation display
 
+// COUNTDOWN TIMER ANIMATION
+var i = 0;
+var countdownSlides = [];
+var time = 500;
+
+countdownSlides[0] = "Rock...";
+countdownSlides[1] = "Paper...";
+countdownSlides[2] = "Scissors...";
+countdownSlides[3] = "SHOOT!";
+countdownSlides[4] = "playerSelection VS computerSelection";
+countdownSlides[5] = "playerSelection VS computerSelection";
+countdownSlides[6] = "you WIN || you lose...";
+countdownSlides[7] = "you WIN || you lose...";
+
+function countdown(){
+	document.querySelector(".countdown").innerHTML = countdownSlides[i];
+
+	if (i == 7){
+    return;	  
+	} 
+  i++
+	setTimeout("countdown()", time);
+}
+
+
+
 document.querySelector(".start-screen__btn").onclick = () => {
   displayGamePlayContainer();
+  countdown();
 }
 
 function displayGamePlayContainer() {
@@ -16,59 +43,45 @@ document.querySelector(".gameplay__container").style.display = 'block';
 document.querySelector(".start-screen__container").style.display = 'none';
 }
 
+function computerPlay() {
+  const randomChoice = Math.floor(Math.random() * 1000);
+  if (randomChoice % 3 === 0) {
+          return 'Rock';
+  }
+  else if (randomChoice % 3 === 1) {
+          return 'Paper';
+  } 
+  else if (randomChoice % 3 === 2) {
+    return 'Scissors';
+  }
+}
 
+document.querySelector(".rock").onclick = () => {
+  console.log(computerPlay());
+}
 
+let playerScore = 0;
+let computerScore = 0;
 
-// const elem = document.getElementById("test");
-
-// elem.onclick = () => {
-//   changeColor();
-// };
-// changeColor = () => {
-//   if ((elem.style.color == 'blue')) {
-//     elem.style.color = 'black';
-//   } else {
-//     elem.style.color = 'blue';
-//   }
-// }
-
-// const shoot = document.getElementById("shoot");
-
-// shoot.onclick = () => {
-//   console.log(computerPlay(randomizer(3)));
-// }
-
-// randomizer = (max) => {
-//   return Math.floor(Math.random() * max);
-// }
-
-// computerPlay = () => {
-//   if (randomizer(3) === 0) {
-//     console.log("Rock");
-//   } else if (randomizer(3) === 1) {
-//     console.log("Paper");
-//   } else if (randomizer(3) === 2) {
-//     console.log("Scissors");
-//   } else {
-//     console.log("Error in computerPlay function");
-//   }
-// }
-
-// playRound = (playerSelection, computerSelection) => {
-//   if (playerSelection == computerSelection) {
-//     console.log("Draw! Let's play again!");
-//   } else if (playerSelection == "Rock" && computerSelection == "Paper" || playerSelection == "Paper" && computerSelection == "Scissors" || playerSelection == "Scissors" && computerSelection == "Rock") {
-//     console.log(`You lose. ${computerSelection} beats ${playerSelection}`);
-//   } else if (playerSelection == "Rock" && computerSelection == "Scissors" || playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Scissors" && computerSelection == "Paper") {
-//     console.log(`You WIN! ${playerSelection} beats ${computerSelection}!`);
-//   } else {
-//     console.log("Input error in playRound function");
-//   }
-// }
-
-// shoot.onclick = () => {
-//   const playerSelection = "Rock";
-//   const computerSelection = computerPlay();
-//   console.log(playRound(playerSelection, computerSelection));
-// }
-
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return "Tie!";
+  }
+  else if (
+    (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
+    (playerSelection === 'Paper' && computerSelection === 'Rock') ||
+    (playerSelection === 'Scissors' && computerSelection === 'Paper')
+  ) {
+    playerScore++;
+    return "You WIN!";
+  }
+  else if (
+    (computerSelection === 'Rock' && playerSelection === 'Scissors') ||
+    (computerSelection === 'Paper' && playerSelection === 'Rock') ||
+    (computerSelection === 'Scissors' && playerSelection === 'Paper')
+  ) {
+    computerScore++;
+    return "You lose..."
+  }
+  updateScore(playerSelection, computerSelection)
+}
