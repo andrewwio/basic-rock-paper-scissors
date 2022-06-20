@@ -49,6 +49,14 @@ p {
   text-align: center;
 }
 
+.round-result__container {
+  text-align: center;
+}
+.selection-display {
+  display: inline-block;
+  width: 100px;
+}
+
 .player-selection__container {
   position: absolute;
   left: 50%;

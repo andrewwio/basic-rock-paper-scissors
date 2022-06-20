@@ -61,10 +61,15 @@ function updateScore() {
 
 let playerScore = 0;
 let computerScore = 0;
+let roundResult = "";
+let playerSelection = "";
+let computerSelection = "";
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "Tie!";
+    roundResult = "Tie!";
+    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
+    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
   }
   else if (
     (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
@@ -72,7 +77,9 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'Scissors' && computerSelection === 'Paper')
   ) {
     playerScore++;
-    return "You WIN!";
+    roundResult = "You WIN!";
+    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
+    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
   }
   else if (
     (computerSelection === 'Rock' && playerSelection === 'Scissors') ||
@@ -80,7 +87,39 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === 'Scissors' && playerSelection === 'Paper')
   ) {
     computerScore++;
-    return "You lose..."
+    roundResult = "You lose...";
+    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
+    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
+  }
+}
+
+function updateRoundResult() {
+  if (roundResult === "Tie!") {
+    document.querySelector(".round-result").innerHTML = "Tie!";
+  }
+  if (roundResult === "You WIN!") {
+    document.querySelector(".round-result").innerHTML = "You WIN!";
+  }
+  if (roundResult === "You lose...") {
+    document.querySelector(".round-result").innerHTML = "You lose...";
+  }
+}
+
+function updatePlayerSelection() {
+  if (playerSelection === 'Rock') {
+    document.querySelector(".player-selection-display").innerHTML = "Rock";
+  }
+  else if (playerSelection === 'Paper') {
+    document.querySelector(".player-selection-display").innerHTML = "Paper";
+  }
+  else if (playerSelection === 'Scissors') {
+    document.querySelector(".player-selection-display").innerHTML = "Scissors";
+  }
+  else if (playerSelection === 'bananahammer') {
+    document.querySelector(".player-selection-display").innerHTML = "bananahammer"
+  }
+  else {
+    console.log("Error in updatePlayerSelection")
   }
 }
 
@@ -89,9 +128,10 @@ document.querySelector(".rock").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
+  updateRoundResult();
+  updatePlayerSelection(playerSelection);
 });
 
 document.querySelector(".paper").addEventListener("click", () => {
@@ -102,6 +142,7 @@ document.querySelector(".paper").addEventListener("click", () => {
 
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
+  updateRoundResult();
 });
 
 document.querySelector(".scissors").addEventListener("click", () => {
@@ -112,12 +153,13 @@ document.querySelector(".scissors").addEventListener("click", () => {
 
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
+  updateRoundResult();
 });
 
 
 
 // RESET BUTTON
 document.querySelector(".reset").addEventListener("click", () => {
-  updateScore();
+  location.reload();
 })
 
