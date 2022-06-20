@@ -1,10 +1,7 @@
 // FEATURES
-// Rock button, paper button, scissors button
-// Score display 
 // Reset/start button
 // Win/lose round display
 // Win/lose game display
-// round animation display
 // countdown animation display
 
 // COUNTDOWN TIMER ANIMATION
@@ -29,6 +26,8 @@ function countdown(){
   i++;
   setTimeout("countdown()", time);
 }
+
+
 
 document.querySelector(".start-screen__btn").addEventListener("click", () => {
   displayGamePlayContainer();
@@ -83,7 +82,6 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     return "You lose..."
   }
-  updateScore(playerSelection, computerSelection);
 }
 
 document.querySelector(".rock").addEventListener("click", () => {
@@ -91,8 +89,9 @@ document.querySelector(".rock").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  updateScore();
+
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+  updateScore(playerScore, computerScore);
 });
 
 document.querySelector(".paper").addEventListener("click", () => {
@@ -100,8 +99,9 @@ document.querySelector(".paper").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  updateScore();
+
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+  updateScore(playerScore, computerScore);
 });
 
 document.querySelector(".scissors").addEventListener("click", () => {
@@ -109,7 +109,15 @@ document.querySelector(".scissors").addEventListener("click", () => {
   computerSelection = computerPlay();
 
   playRound();
-  updateScore();
+
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+  updateScore(playerScore, computerScore);
 });
+
+
+
+// RESET BUTTON
+document.querySelector(".reset").addEventListener("click", () => {
+  updateScore();
+})
 
