@@ -1,30 +1,30 @@
 // FEATURES TO COMPLETE:
-// Timer 
+// Countdown
 // Sounds
 
 
 // COUNTDOWN TIMER ANIMATION
-var i = 0;
-var countdownSlides = [];
-var time = 500;
+// var i = 0;
+// var countdownSlides = [];
+// var time = 500;
 
-countdownSlides[0] = "Rock...";
-countdownSlides[1] = "Paper...";
-countdownSlides[2] = "Scissors...";
-countdownSlides[3] = "SHOOT!";
-countdownSlides[4] = "playerSelection VS computerSelection";
-countdownSlides[5] = "playerSelection VS computerSelection";
-countdownSlides[6] = "you WIN || you lose...";
-countdownSlides[7] = "you WIN || you lose...";
+// countdownSlides[0] = "Rock...";
+// countdownSlides[1] = "Paper...";
+// countdownSlides[2] = "Scissors...";
+// countdownSlides[3] = "SHOOT!";
+// countdownSlides[4] = "playerSelection VS computerSelection";
+// countdownSlides[5] = "playerSelection VS computerSelection";
+// countdownSlides[6] = "you WIN || you lose...";
+// countdownSlides[7] = "you WIN || you lose...";
 
-function countdown(){
-	document.querySelector(".countdown").innerHTML = countdownSlides[i];
-	if (i >= 7) {
-    return;
-  } 
-  i++;
-  setTimeout("countdown()", time);
-}
+// function countdown(){
+// 	document.querySelector(".countdown").innerHTML = countdownSlides[i];
+// 	if (i >= 7) {
+//     return;
+//   } 
+//   i++;
+//   setTimeout("countdown()", time);
+// }
 
 
 
@@ -126,19 +126,34 @@ function updateRoundResult() {
   }
 }
 
+function displayCountdown() {
+  document.querySelector(".test").style.display = "block";
+}
+
 // BUTTONS
 
 document.querySelector(".rock").addEventListener("click", () => {
-  let playerSelection = 'Rock';
-  computerSelection = computerPlay();
-
-  playRound();
-  console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
-
-  updateScore(playerScore, computerScore);
-  updateRoundResult();
-  endGame();
-
+  // displaycountdown
+  // hidecountdown
+  document.querySelector(".player-selection-display").innerHTML = "";
+  document.querySelector(".computer-selection-display").innerHTML = "";
+  document.querySelector(".round-result").innerHTML = "";
+  displayCountdown();
+  setTimeout(function() {
+    document.querySelector(".test").style.display = "none";
+  }, 1500);
+  setTimeout(function() {
+    let playerSelection = 'Rock';
+    computerSelection = computerPlay();
+  
+    playRound();
+    console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+  }, 1500);
+  setTimeout(function() {
+    updateScore(playerScore, computerScore);
+    updateRoundResult();
+    endGame();
+  }, 2500);
 });
 
 document.querySelector(".paper").addEventListener("click", () => {

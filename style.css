@@ -1,3 +1,35 @@
+.test {
+  display: none;
+}
+
+.animated {
+  text-indent: 8px;
+  color:red;
+}
+
+.animated:before {
+  content: "rock.";
+  animation: topToBottom 1.5s forwards 0s;
+}
+
+@keyframes topToBottom {
+  0% {
+    content: "";
+  }
+  25% {
+    content: "Rock";
+  }
+  50% {
+    content: "Paper";
+  }
+  75% {
+    content: "Scissors";
+  }
+  100% {
+    content: "Shoot!";
+  }
+}
+
 img {
   position: absolute;
   text-align: center;
