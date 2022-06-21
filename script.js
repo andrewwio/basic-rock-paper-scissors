@@ -1,6 +1,4 @@
 // FEATURES
-// Reset/start button
-// Win/lose round display
 // Win/lose game display
 // countdown animation display
 
@@ -115,11 +113,8 @@ function updatePlayerSelection() {
   else if (playerSelection === 'Scissors') {
     document.querySelector(".player-selection-display").innerHTML = "Scissors";
   }
-  else if (playerSelection === 'bananahammer') {
-    document.querySelector(".player-selection-display").innerHTML = "bananahammer"
-  }
   else {
-    console.log("Error in updatePlayerSelection")
+    console.log("Error in updatePlayerSelection function");
   }
 }
 
@@ -163,3 +158,8 @@ document.querySelector(".reset").addEventListener("click", () => {
   location.reload();
 })
 
+function endGame() {
+  if (playerScore === 5 || computerScore === 5) {
+    document.querySelector(".game-result__container").style.display = "block";
+  } 
+}
