@@ -1,5 +1,6 @@
 // FEATURES TO COMPLETE:
 // Timer 
+// Sounds
 
 
 // COUNTDOWN TIMER ANIMATION
