@@ -166,7 +166,14 @@ document.querySelector(".scissors").addEventListener("click", () => {
 
 // RESET BUTTON
 document.querySelector(".reset").addEventListener("click", () => {
-  location.reload();
+  document.querySelector(".game-result__container").style.display = "none";
+  document.querySelector(".gameplay__container").style.display = "block";
+  document.querySelector(".player-score").innerHTML = "Player Score - 0";
+  document.querySelector(".computer-score").innerHTML = "Computer Score - 0";
+  document.querySelector(".player-selection-display").innerHTML = "";
+  document.querySelector(".computer-selection-display").innerHTML = "";
+  document.querySelector(".round-result").innerHTML = "";
+  document.querySelector(".reset__btn").innerHTML = "Start Over";
 })
 
 function endGame() {
