@@ -1,6 +1,6 @@
-// FEATURES
-// Win/lose game display
-// countdown animation display
+// FEATURES TO COMPLETE:
+// Timer 
+
 
 // COUNTDOWN TIMER ANIMATION
 var i = 0;
