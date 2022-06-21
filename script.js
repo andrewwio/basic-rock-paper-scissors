@@ -134,10 +134,11 @@ document.querySelector(".rock").addEventListener("click", () => {
 
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+
   updateScore(playerScore, computerScore);
   updateRoundResult();
-
   endGame();
+
 });
 
 document.querySelector(".paper").addEventListener("click", () => {
@@ -146,9 +147,9 @@ document.querySelector(".paper").addEventListener("click", () => {
 
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+
   updateScore(playerScore, computerScore);
   updateRoundResult();
-
   endGame();
 });
 
@@ -158,9 +159,9 @@ document.querySelector(".scissors").addEventListener("click", () => {
 
   playRound();
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
+
   updateScore(playerScore, computerScore);
   updateRoundResult();
-
   endGame();
 });
 
