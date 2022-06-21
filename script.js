@@ -166,6 +166,8 @@ document.querySelector(".scissors").addEventListener("click", () => {
 
 // RESET BUTTON
 document.querySelector(".reset").addEventListener("click", () => {
+  playerScore = 0;
+  computerScore = 0;
   document.querySelector(".game-result__container").style.display = "none";
   document.querySelector(".gameplay__container").style.display = "block";
   document.querySelector(".player-score").innerHTML = "Player Score - 0";

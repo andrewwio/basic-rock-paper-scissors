@@ -52,6 +52,10 @@ p {
 .round-result__container {
   text-align: center;
 }
+.name-title {
+  display: inline-block;
+  width: 100px;
+}
 .selection-display {
   display: inline-block;
   width: 100px;
