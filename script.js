@@ -33,9 +33,10 @@ document.querySelector(".start-screen__btn").addEventListener("click", () => {
 });
 
 function displayGamePlayContainer() {
-document.querySelector(".gameplay__container").style.display = 'block';
-document.querySelector(".reset").style.display = 'block';
-document.querySelector(".start-screen__container").style.display = 'none';
+  document.querySelector(".score__container").style.display = "block";
+  document.querySelector(".gameplay__container").style.display = 'block';
+  document.querySelector(".reset").style.display = 'block';
+  document.querySelector(".start-screen__container").style.display = 'none';
 }
 
 function computerPlay() {

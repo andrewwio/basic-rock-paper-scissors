@@ -33,6 +33,10 @@ p {
   display: none;
 }
 
+.score__container {
+  display: none;
+}
+
 .gameplay__container {
   display: none;
 }
