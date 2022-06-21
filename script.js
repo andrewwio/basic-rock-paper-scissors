@@ -134,6 +134,8 @@ document.querySelector(".rock").addEventListener("click", () => {
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
   updateRoundResult();
+
+  endGame();
 });
 
 document.querySelector(".paper").addEventListener("click", () => {
@@ -144,6 +146,8 @@ document.querySelector(".paper").addEventListener("click", () => {
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
   updateRoundResult();
+
+  endGame();
 });
 
 document.querySelector(".scissors").addEventListener("click", () => {
@@ -154,6 +158,8 @@ document.querySelector(".scissors").addEventListener("click", () => {
   console.log(playRound(playerSelection, computerSelection), playerScore, computerScore);
   updateScore(playerScore, computerScore);
   updateRoundResult();
+
+  endGame();
 });
 
 
@@ -164,7 +170,15 @@ document.querySelector(".reset").addEventListener("click", () => {
 })
 
 function endGame() {
-  if (playerScore === 5 || computerScore === 5) {
+  if (playerScore === 5) {
     document.querySelector(".game-result__container").style.display = "block";
-  } 
+    document.querySelector(".gameplay__container").style.display = "none";
+    document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
+    document.querySelector(".game-result__container").innerHTML = "YOU WON ROCK PAPER SCISSORS!!!";
+  } else if (computerScore === 5) {
+    document.querySelector(".game-result__container").style.display = "block";
+    document.querySelector(".gameplay__container").style.display = "none";
+    document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
+    document.querySelector(".game-result__container").innerHTML = "You lost the game...";
+  }
 }
