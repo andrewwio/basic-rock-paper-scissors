@@ -21,7 +21,7 @@ div {
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
   display: none;
-  width: 400px;
+  width: 300px;
 }
 .score {
   display: inline-block;

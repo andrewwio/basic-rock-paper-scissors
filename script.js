@@ -111,8 +111,8 @@ document.querySelector(".reset").addEventListener("click", () => {
   computerPoints = 0;
   gameResultContainer.style.display = "none";
   gameplayContainer.style.display = "block";
-  playerScore.innerHTML = "Player Score - 0";
-  computerScore.innerHTML = "Computer Score - 0";
+  playerScore.innerHTML = "Player - 0";
+  computerScore.innerHTML = "Computer - 0";
   playerSelectionDisplay.innerHTML = "";
   computerSelectionDisplay.innerHTML = "";
   roundResult.innerHTML = "";
@@ -185,8 +185,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-  playerScore.innerHTML = `Player Score - ${playerPoints}`;
-  computerScore.innerHTML = `Computer Score - ${computerPoints}`;
+  playerScore.innerHTML = `Player - ${playerPoints}`;
+  computerScore.innerHTML = `Computer - ${computerPoints}`;
 }
 
 function updateRoundResult() {
