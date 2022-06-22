@@ -4,31 +4,31 @@
 
 
 
-var song1 = new Audio('assets/audio/theme-song.mp3');
+var backgroundMusic = new Audio('assets/audio/theme-song.mp3');
 function themeSong() {
-  song1 = new Audio('assets/audio/theme-song.mp3');
-  song1.loop = true;
-  song1.play();
+  backgroundMusic = new Audio('assets/audio/theme-song.mp3');
+  backgroundMusic.loop = true;
+  backgroundMusic.play();
 }
 
 function resetSong() {
-  song1.play();
-  song2.pause();
-  song2.currentTime = 0;
+  backgroundMusic.play();
+  victorySong.pause();
+  victorySong.currentTime = 0;
 }
 
-var song2 = new Audio('assets/audio/win-game.mp3');
+var victorySong = new Audio('assets/audio/win-game.mp3');
 function winGame() {
-  song2 = new Audio('assets/audio/win-game.mp3');
-  song2.loop = true;
-  song2.play();
-  song1.pause();
-  song1.currentTime = 0;
+  victorySong = new Audio('assets/audio/win-game.mp3');
+  victorySong.loop = true;
+  victorySong.play();
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
 }
 
 function loseGame() {
-  song1.pause();
-  song1.currentTime = 0;
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
 }
 
 
