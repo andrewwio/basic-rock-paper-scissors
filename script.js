@@ -1,30 +1,5 @@
 // FEATURES TO COMPLETE:
-// Countdown
 // Sounds
-
-
-// COUNTDOWN TIMER ANIMATION
-// var i = 0;
-// var countdownSlides = [];
-// var time = 500;
-
-// countdownSlides[0] = "Rock...";
-// countdownSlides[1] = "Paper...";
-// countdownSlides[2] = "Scissors...";
-// countdownSlides[3] = "SHOOT!";
-// countdownSlides[4] = "playerSelection VS computerSelection";
-// countdownSlides[5] = "playerSelection VS computerSelection";
-// countdownSlides[6] = "you WIN || you lose...";
-// countdownSlides[7] = "you WIN || you lose...";
-
-// function countdown(){
-// 	document.querySelector(".countdown").innerHTML = countdownSlides[i];
-// 	if (i >= 7) {
-//     return;
-//   } 
-//   i++;
-//   setTimeout("countdown()", time);
-// }
 
 
 
