@@ -1,41 +1,62 @@
 // FEATURES TO COMPLETE:
 // Sounds
-// startgame, background music, select, countdown, winround, loseround, wingame, losegame
 
 
 
-var backgroundMusic = new Audio('assets/audio/theme-song.mp3');
-function themeSong() {
-  backgroundMusic = new Audio('assets/audio/theme-song.mp3');
-  backgroundMusic.loop = true;
-  backgroundMusic.play();
+function musicPlay() {
+  themeSong = new Audio('assets/audio/theme-song.mp3');
+  themeSong.loop = true;
+  themeSong.play();
+}
+
+
+
+function winGameAudio() {
+  victorySong = new Audio('assets/audio/win-game.mp3');
+  victorySong.loop = true;
+  victorySong.play();
+  themeSong.pause();
+  themeSong.currentTime = 0;
+}
+
+function loseGameAudio() {
+  gameOver = new Audio('assets/audio/lose-game.wav');
+  gameOver.play();
+  themeSong.pause();
+  themeSong.currentTime = 0;
 }
 
 function resetSong() {
-  backgroundMusic.play();
+  themeSong.play();
   victorySong.pause();
   victorySong.currentTime = 0;
 }
 
-var victorySong = new Audio('assets/audio/win-game.mp3');
-function winGame() {
-  victorySong = new Audio('assets/audio/win-game.mp3');
-  victorySong.loop = true;
-  victorySong.play();
-  backgroundMusic.pause();
-  backgroundMusic.currentTime = 0;
+function winRoundAudio() {
+  sm641up = new Audio('assets/audio/win-round.wav');
+  sm641up.play();
 }
 
-function loseGame() {
-  backgroundMusic.pause();
-  backgroundMusic.currentTime = 0;
+function loseRoundAudio() {
+  errorSound = new Audio('assets/audio/errorsound.wav');
+  errorSound.play();
 }
 
+function tieRoundAudio () {
+  littleRobots = new Audio('assets/audio/littlerobots.wav');
+  littleRobots.play();
+}
+
+
+function buttonSound() {
+  andrewEthan = new Audio('assets/audio/andrewethan.wav');
+  andrewEthan.play();
+}
 
 document.querySelector(".start-screen__btn").addEventListener("click", () => {
-  themeSong();
+  musicPlay();
+  buttonSound();
   displayGamePlayContainer();
-  countdown();
 });
 
 function displayGamePlayContainer() {
@@ -117,12 +138,15 @@ function error(errorMessage) {
 function updateRoundResult() {
   if (roundResult === "Tie!") {
     document.querySelector(".round-result").innerHTML = "Tie!";
+    tieRoundAudio();
   }
   else if (roundResult === "You WIN!") {
     document.querySelector(".round-result").innerHTML = "You WIN!";
+    winRoundAudio();
   }
   else if (roundResult === "You lose...") {
     document.querySelector(".round-result").innerHTML = "You lose...";
+    loseRoundAudio();
   }
   else {
     console.log("Error in updateRoundResult function");
@@ -142,6 +166,7 @@ document.querySelector(".rock").addEventListener("click", () => {
   document.querySelector(".computer-selection-display").innerHTML = "";
   document.querySelector(".round-result").innerHTML = "";
   document.querySelector(".player-selection__container").style.pointerEvents = "none";
+  buttonSound();
   displayCountdown();
   setTimeout(function() {
     document.querySelector(".countdown__container").style.display = "none";
@@ -173,6 +198,7 @@ document.querySelector(".paper").addEventListener("click", () => {
   updateScore(playerScore, computerScore);
   updateRoundResult();
   endGame();
+  buttonSound();
 });
 
 document.querySelector(".scissors").addEventListener("click", () => {
@@ -202,6 +228,7 @@ document.querySelector(".reset").addEventListener("click", () => {
   document.querySelector(".round-result").innerHTML = "";
   document.querySelector(".reset__btn").innerHTML = "Start Over";
   resetSong();
+  buttonSound();
 })
 
 function endGame() {
@@ -210,12 +237,16 @@ function endGame() {
     document.querySelector(".gameplay__container").style.display = "none";
     document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
     document.querySelector(".game-result__container").innerHTML = "YOU WON ROCK PAPER SCISSORS!!!";
-    winGame();
+    setTimeout(function() {
+      winGameAudio();
+    }, 750);
   } else if (computerScore >= 5) {
     document.querySelector(".game-result__container").style.display = "block";
     document.querySelector(".gameplay__container").style.display = "none";
     document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
     document.querySelector(".game-result__container").innerHTML = "You lost the game...";
-    loseGame();
+    setTimeout(function() {
+      loseGameAudio();
+    }, 750);
   }
 }
