@@ -1,14 +1,27 @@
-let playerScore = 0;
-let computerScore = 0;
-let roundResult = "";
+let playerPoints = 0;
+let computerPoints = 0;
+let roundWinner = "";
 let playerSelection = "";
 let computerSelection = "";
 
 const startScreenBtn = document.querySelector(".start-screen__btn");
 const rock = document.querySelector(".rock");
-
-
-
+const playerSelectionDisplay = document.querySelector(".player-selection-display");
+const computerSelectionDisplay = document.querySelector(".computer-selection-display");
+const roundResult = document.querySelector(".round-result");
+const playerSelectionContainer = document.querySelector(".player-selection__container");
+const countdownContainer = document.querySelector(".countdown__container");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const reset = document.querySelector(".reset");
+const gameResultContainer = document.querySelector(".game-result__container");
+const gameplayContainer = document.querySelector(".gameplay__container");
+const playerScore = document.querySelector(".player-score");
+const computerScore = document.querySelector(".computer-score");
+const resetBtn = document.querySelector(".reset__btn");
+const scoreContainer = document.querySelector(".score__container");
+const startScreenContainer = document.querySelector(".start-screen__container");
+const errorAbbreviation = document.querySelector(".error");
 
 // BUTTONS
 
@@ -19,10 +32,10 @@ startScreenBtn.addEventListener("click", () => {
 });
 
 rock.addEventListener("click", () => {
-  document.querySelector(".player-selection-display").innerHTML = "";
-  document.querySelector(".computer-selection-display").innerHTML = "";
-  document.querySelector(".round-result").innerHTML = "";
-  document.querySelector(".player-selection__container").style.pointerEvents = "none";
+  playerSelectionDisplay.innerHTML = "";
+  computerSelectionDisplay.innerHTML = "";
+  roundResult.innerHTML = "";
+  playerSelectionContainer.style.pointerEvents = "none";
   buttonSound();
   displayCountdown();
   setTimeout(function() {
@@ -31,23 +44,23 @@ rock.addEventListener("click", () => {
     playRound(playerSelection, computerSelection);
   }, 1500);
   setTimeout(function() {
-    document.querySelector(".countdown__container").style.display = "none";
+    countdownContainer.style.display = "none";
   }, 2500);
   setTimeout(function() {
-    updateScore(playerScore, computerScore);
+    updateScore(playerPoints, computerPoints);
     updateRoundResult();
     endGame();
   }, 2500);
   setTimeout(function() {
-    document.querySelector(".player-selection__container").style.pointerEvents = "auto";
+    playerSelectionContainer.style.pointerEvents = "auto";
   }, 2500);
 });
 
-document.querySelector(".paper").addEventListener("click", () => {
-  document.querySelector(".player-selection-display").innerHTML = "";
-  document.querySelector(".computer-selection-display").innerHTML = "";
-  document.querySelector(".round-result").innerHTML = "";
-  document.querySelector(".player-selection__container").style.pointerEvents = "none";
+paper.addEventListener("click", () => {
+  playerSelectionDisplay.innerHTML = "";
+  computerSelectionDisplay.innerHTML = "";
+  roundResult.innerHTML = "";
+  playerSelectionContainer.style.pointerEvents = "none";
   buttonSound();
   displayCountdown();
   setTimeout(function() {
@@ -56,23 +69,23 @@ document.querySelector(".paper").addEventListener("click", () => {
     playRound(playerSelection, computerSelection);
   }, 1500);
   setTimeout(function() {
-    document.querySelector(".countdown__container").style.display = "none";
+    countdownContainer.style.display = "none";
   }, 2500);
   setTimeout(function() {
-    updateScore(playerScore, computerScore);
+    updateScore(playerPoints, computerPoints);
     updateRoundResult();
     endGame();
   }, 2500);
   setTimeout(function() {
-    document.querySelector(".player-selection__container").style.pointerEvents = "auto";
+    playerSelectionContainer.style.pointerEvents = "auto";
   }, 2500);
 });
 
-document.querySelector(".scissors").addEventListener("click", () => {
-  document.querySelector(".player-selection-display").innerHTML = "";
-  document.querySelector(".computer-selection-display").innerHTML = "";
-  document.querySelector(".round-result").innerHTML = "";
-  document.querySelector(".player-selection__container").style.pointerEvents = "none";
+scissors.addEventListener("click", () => {
+  playerSelectionDisplay.innerHTML = "";
+  computerSelectionDisplay.innerHTML = "";
+  roundResult.innerHTML = "";
+  playerSelectionContainer.style.pointerEvents = "none";
   buttonSound();
   displayCountdown();
   setTimeout(function() {
@@ -81,29 +94,29 @@ document.querySelector(".scissors").addEventListener("click", () => {
     playRound(playerSelection, computerSelection);
   }, 1500);
   setTimeout(function() {
-    document.querySelector(".countdown__container").style.display = "none";
+    countdownContainer.style.display = "none";
   }, 2500);
   setTimeout(function() {
-    updateScore(playerScore, computerScore);
+    updateScore(playerPoints, computerPoints);
     updateRoundResult();
     endGame();
   }, 2500);
   setTimeout(function() {
-    document.querySelector(".player-selection__container").style.pointerEvents = "auto";
+    playerSelectionContainer.style.pointerEvents = "auto";
   }, 2500);
 });
 
 document.querySelector(".reset").addEventListener("click", () => {
-  playerScore = 0;
-  computerScore = 0;
-  document.querySelector(".game-result__container").style.display = "none";
-  document.querySelector(".gameplay__container").style.display = "block";
-  document.querySelector(".player-score").innerHTML = "Player Score - 0";
-  document.querySelector(".computer-score").innerHTML = "Computer Score - 0";
-  document.querySelector(".player-selection-display").innerHTML = "";
-  document.querySelector(".computer-selection-display").innerHTML = "";
-  document.querySelector(".round-result").innerHTML = "";
-  document.querySelector(".reset__btn").innerHTML = "Start Over";
+  playerPoints = 0;
+  computerPoints = 0;
+  gameResultContainer.style.display = "none";
+  gameplayContainer.style.display = "block";
+  playerScore.innerHTML = "Player Score - 0";
+  computerScore.innerHTML = "Computer Score - 0";
+  playerSelectionDisplay.innerHTML = "";
+  computerSelectionDisplay.innerHTML = "";
+  roundResult.innerHTML = "";
+  resetBtn.innerHTML = "Start Over";
   resetSong();
   buttonSound();
 })
@@ -111,14 +124,14 @@ document.querySelector(".reset").addEventListener("click", () => {
 // GAMEPLAY FUNCTIONS
 
 function displayGamePlayContainer() {
-  document.querySelector(".score__container").style.display = "block";
-  document.querySelector(".gameplay__container").style.display = 'block';
-  document.querySelector(".reset").style.display = 'block';
-  document.querySelector(".start-screen__container").style.display = 'none';
+  scoreContainer.style.display = "block";
+  gameplayContainer.style.display = 'block';
+  reset.style.display = 'block';
+  startScreenContainer.style.display = 'none';
 }
 
 function displayCountdown() {
-  document.querySelector(".countdown__container").style.display = "block";
+  countdownContainer.style.display = "block";
 }
 
 function computerPlay() {
@@ -141,29 +154,29 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    roundResult = "Tie!";
-    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
-    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
+    roundWinner = "Tie!";
+    playerSelectionDisplay.innerHTML = `${playerSelection}`;
+    computerSelectionDisplay.innerHTML = `${computerSelection}`;
   }
   else if (
     (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
     (playerSelection === 'Paper' && computerSelection === 'Rock') ||
     (playerSelection === 'Scissors' && computerSelection === 'Paper')
   ) {
-    playerScore++;
-    roundResult = "You WIN!";
-    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
-    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
+    playerPoints++;
+    roundWinner = "You WIN!";
+    playerSelectionDisplay.innerHTML = `${playerSelection}`;
+    computerSelectionDisplay.innerHTML = `${computerSelection}`;
   }
   else if (
     (computerSelection === 'Rock' && playerSelection === 'Scissors') ||
     (computerSelection === 'Paper' && playerSelection === 'Rock') ||
     (computerSelection === 'Scissors' && playerSelection === 'Paper')
   ) {
-    computerScore++;
-    roundResult = "You lose...";
-    document.querySelector(".player-selection-display").innerHTML = `${playerSelection}`;
-    document.querySelector(".computer-selection-display").innerHTML = `${computerSelection}`;
+    computerPoints++;
+    roundWinner = "You lose...";
+    playerSelectionDisplay.innerHTML = `${playerSelection}`;
+    computerSelectionDisplay.innerHTML = `${computerSelection}`;
   } else {
     console.log("Error in playRound function");
     let errorMessage = "Error in playRound function";
@@ -172,21 +185,21 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-  document.querySelector(".player-score").innerHTML = `Player Score - ${playerScore}`;
-  document.querySelector(".computer-score").innerHTML = `Computer Score - ${computerScore}`;
+  playerScore.innerHTML = `Player Score - ${playerPoints}`;
+  computerScore.innerHTML = `Computer Score - ${computerPoints}`;
 }
 
 function updateRoundResult() {
-  if (roundResult === "Tie!") {
-    document.querySelector(".round-result").innerHTML = "Tie!";
+  if (roundWinner === "Tie!") {
+    roundResult.innerHTML = "Tie!";
     tieRoundAudio();
   }
-  else if (roundResult === "You WIN!") {
-    document.querySelector(".round-result").innerHTML = "You WIN!";
+  else if (roundWinner === "You WIN!") {
+    roundResult.innerHTML = "You WIN!";
     winRoundAudio();
   }
-  else if (roundResult === "You lose...") {
-    document.querySelector(".round-result").innerHTML = "You lose...";
+  else if (roundWinner === "You lose...") {
+    roundResult.innerHTML = "You lose...";
     loseRoundAudio();
   }
   else {
@@ -197,19 +210,19 @@ function updateRoundResult() {
 }
 
 function endGame() {
-  if (playerScore >= 5) {
-    document.querySelector(".game-result__container").style.display = "block";
-    document.querySelector(".gameplay__container").style.display = "none";
-    document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
-    document.querySelector(".game-result__container").innerHTML = "YOU WON ROCK PAPER SCISSORS!!!";
+  if (playerPoints >= 5) {
+    gameResultContainer.style.display = "block";
+    gameplayContainer.style.display = "none";
+    resetBtn.innerHTML = "Let's Play Again!";
+    gameResultContainer.innerHTML = "YOU WON ROCK PAPER SCISSORS!!!";
     setTimeout(function() {
       winGameAudio();
     }, 750);
-  } else if (computerScore >= 5) {
-    document.querySelector(".game-result__container").style.display = "block";
-    document.querySelector(".gameplay__container").style.display = "none";
-    document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
-    document.querySelector(".game-result__container").innerHTML = "You lost the game...";
+  } else if (computerPoints >= 5) {
+    gameResultContainer.style.display = "block";
+    gameplayContainer.style.display = "none";
+    resetBtn.innerHTML = "Let's Play Again!";
+    gameResultContainer.innerHTML = "You lost the game...";
     setTimeout(function() {
       loseGameAudio();
     }, 750);
@@ -219,9 +232,9 @@ function endGame() {
 // ERROR MESSAGE
 
 function error(errorMessage) {
-  document.querySelector(".gameplay__container").style.display = "none";
-  document.querySelector(".error").style.display = "block";
-  document.querySelector(".error").innerHTML = errorMessage;
+  gameplayContainer.style.display = "none";
+  errorAbbreviation.style.display = "block";
+  errorAbbreviation.innerHTML = errorMessage;
 }
 
 // AUDIO FUNCTIONS
