@@ -1,3 +1,6 @@
+div {
+  font-family: 'Poppins', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
 
 .start-screen__container {
   position: absolute;
@@ -18,10 +21,16 @@
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
   display: none;
+  width: 400px;
 }
 .score {
   display: inline-block;
-  text-align: center;
+}
+.player-score {
+  float: left;
+}
+.computer-score {
+  float: right;
 }
 
 .gameplay__container {
@@ -30,22 +39,26 @@
 
 .round-result__container {
   text-align: center;
-}
-.round-result__container {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 25%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
+  height: 600px;
 }
+
 .countdown__container {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
   display: none;
 }
 .countdown:before {
   content: "Rock";
   animation: countdown 1.5s forwards 0s;
 }
-
 @keyframes countdown {
   0% {
     content: "";
@@ -66,24 +79,48 @@
 .countdown {
   text-align: center;
 }
+
+.name-titles {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
 .name-title {
   display: inline-block;
   width: 100px;
 }
 
+.selection-display__container {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+.selection-display {
+  display: inline-block;
+  width: 100px;
+}
+
+.round-result {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+}
+
 .game-result__container {
   position: absolute;
   left: 50%;
-  top: 10%;
+  top: 50%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
   display: none;
 }
 
-.selection-display {
-  display: inline-block;
-  width: 100px;
-}
 
 .player-selection__container {
   position: absolute;
