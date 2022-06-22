@@ -1,28 +1,3 @@
-.countdown__container {
-  display: none;
-}
-.countdown:before {
-  content: "Rock";
-  animation: countdown 1.5s forwards 0s;
-}
-
-@keyframes countdown {
-  0% {
-    content: "";
-  }
-  25% {
-    content: "Rock";
-  }
-  50% {
-    content: "Paper";
-  }
-  75% {
-    content: "Scissors";
-  }
-  100% {
-    content: "Shoot!";
-  }
-}
 
 .start-screen__container {
   position: absolute;
@@ -62,6 +37,31 @@
   top: 40%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
+}
+.countdown__container {
+  display: none;
+}
+.countdown:before {
+  content: "Rock";
+  animation: countdown 1.5s forwards 0s;
+}
+
+@keyframes countdown {
+  0% {
+    content: "";
+  }
+  25% {
+    content: "Rock";
+  }
+  50% {
+    content: "Paper";
+  }
+  75% {
+    content: "Scissors";
+  }
+  100% {
+    content: "Shoot!";
+  }
 }
 .countdown {
   text-align: center;
