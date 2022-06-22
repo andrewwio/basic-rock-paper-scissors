@@ -4,11 +4,31 @@
 
 
 
-var song = new Audio('assets/audio/theme-song.mp3');
+var song1 = new Audio('assets/audio/theme-song.mp3');
 function themeSong() {
-  song = new Audio('assets/audio/theme-song.mp3');
-  song.loop = true;
-  song.play();
+  song1 = new Audio('assets/audio/theme-song.mp3');
+  song1.loop = true;
+  song1.play();
+}
+
+function resetSong() {
+  song1.play();
+  song2.pause();
+  song2.currentTime = 0;
+}
+
+var song2 = new Audio('assets/audio/win-game.mp3');
+function winGame() {
+  song2 = new Audio('assets/audio/win-game.mp3');
+  song2.loop = true;
+  song2.play();
+  song1.pause();
+  song1.currentTime = 0;
+}
+
+function loseGame() {
+  song1.pause();
+  song1.currentTime = 0;
 }
 
 
@@ -181,6 +201,7 @@ document.querySelector(".reset").addEventListener("click", () => {
   document.querySelector(".computer-selection-display").innerHTML = "";
   document.querySelector(".round-result").innerHTML = "";
   document.querySelector(".reset__btn").innerHTML = "Start Over";
+  resetSong();
 })
 
 function endGame() {
@@ -189,10 +210,12 @@ function endGame() {
     document.querySelector(".gameplay__container").style.display = "none";
     document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
     document.querySelector(".game-result__container").innerHTML = "YOU WON ROCK PAPER SCISSORS!!!";
+    winGame();
   } else if (computerScore >= 5) {
     document.querySelector(".game-result__container").style.display = "block";
     document.querySelector(".gameplay__container").style.display = "none";
     document.querySelector(".reset__btn").innerHTML = "Let's Play Again!";
     document.querySelector(".game-result__container").innerHTML = "You lost the game...";
+    loseGame();
   }
 }
