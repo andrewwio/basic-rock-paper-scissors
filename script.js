@@ -102,20 +102,18 @@ function updateRoundResult() {
 }
 
 function displayCountdown() {
-  document.querySelector(".test").style.display = "block";
+  document.querySelector(".countdown__container").style.display = "block";
 }
 
 // BUTTONS
 
 document.querySelector(".rock").addEventListener("click", () => {
-  // displaycountdown
-  // hidecountdown
   document.querySelector(".player-selection-display").innerHTML = "";
   document.querySelector(".computer-selection-display").innerHTML = "";
   document.querySelector(".round-result").innerHTML = "";
   displayCountdown();
   setTimeout(function() {
-    document.querySelector(".test").style.display = "none";
+    document.querySelector(".countdown__container").style.display = "none";
   }, 1500);
   setTimeout(function() {
     let playerSelection = 'Rock';

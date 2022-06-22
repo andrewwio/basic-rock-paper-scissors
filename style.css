@@ -1,18 +1,12 @@
-.test {
+.countdown__container {
   display: none;
 }
-
-.animated {
-  text-indent: 8px;
-  color:red;
+.countdown:before {
+  content: "Rock";
+  animation: countdown 1.5s forwards 0s;
 }
 
-.animated:before {
-  content: "rock.";
-  animation: toodles 1.5s forwards 0s;
-}
-
-@keyframes toodles {
+@keyframes countdown {
   0% {
     content: "";
   }
