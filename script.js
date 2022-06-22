@@ -121,6 +121,7 @@ document.querySelector(".rock").addEventListener("click", () => {
   document.querySelector(".player-selection-display").innerHTML = "";
   document.querySelector(".computer-selection-display").innerHTML = "";
   document.querySelector(".round-result").innerHTML = "";
+  document.querySelector(".player-selection__container").style.pointerEvents = "none";
   displayCountdown();
   setTimeout(function() {
     document.querySelector(".countdown__container").style.display = "none";
@@ -136,6 +137,9 @@ document.querySelector(".rock").addEventListener("click", () => {
     updateScore(playerScore, computerScore);
     updateRoundResult();
     endGame();
+  }, 2500);
+  setTimeout(function() {
+    document.querySelector(".player-selection__container").style.pointerEvents = "auto";
   }, 2500);
 });
 
