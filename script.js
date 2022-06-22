@@ -5,6 +5,7 @@ let playerSelection = "";
 let computerSelection = "";
 
 const startScreenBtn = document.querySelector(".start-screen__btn");
+const rock = document.querySelector(".rock");
 
 
 
@@ -12,12 +13,12 @@ const startScreenBtn = document.querySelector(".start-screen__btn");
 // BUTTONS
 
 startScreenBtn.addEventListener("click", () => {
+  displayGamePlayContainer();
   musicPlay();
   buttonSound();
-  displayGamePlayContainer();
 });
 
-document.querySelector(".rock").addEventListener("click", () => {
+rock.addEventListener("click", () => {
   document.querySelector(".player-selection-display").innerHTML = "";
   document.querySelector(".computer-selection-display").innerHTML = "";
   document.querySelector(".round-result").innerHTML = "";
@@ -116,6 +117,10 @@ function displayGamePlayContainer() {
   document.querySelector(".start-screen__container").style.display = 'none';
 }
 
+function displayCountdown() {
+  document.querySelector(".countdown__container").style.display = "block";
+}
+
 function computerPlay() {
   const randomChoice = Math.floor(Math.random() * 1000);
   if (randomChoice % 3 === 0) {
@@ -133,12 +138,6 @@ function computerPlay() {
     error(errorMessage);
   }
 }
-
-function updateScore() {
-  document.querySelector(".player-score").innerHTML = `Player Score - ${playerScore}`;
-  document.querySelector(".computer-score").innerHTML = `Computer Score - ${computerScore}`;
-}
-
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
@@ -172,7 +171,10 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-
+function updateScore() {
+  document.querySelector(".player-score").innerHTML = `Player Score - ${playerScore}`;
+  document.querySelector(".computer-score").innerHTML = `Computer Score - ${computerScore}`;
+}
 
 function updateRoundResult() {
   if (roundResult === "Tie!") {
@@ -194,12 +196,6 @@ function updateRoundResult() {
   }
 }
 
-function displayCountdown() {
-  document.querySelector(".countdown__container").style.display = "block";
-}
-
-
-
 function endGame() {
   if (playerScore >= 5) {
     document.querySelector(".game-result__container").style.display = "block";
@@ -220,8 +216,8 @@ function endGame() {
   }
 }
 
-
 // ERROR MESSAGE
+
 function error(errorMessage) {
   document.querySelector(".gameplay__container").style.display = "none";
   document.querySelector(".error").style.display = "block";
@@ -229,6 +225,7 @@ function error(errorMessage) {
 }
 
 // AUDIO FUNCTIONS
+
 function musicPlay() {
   themeSong = new Audio('assets/audio/theme-song.mp3');
   themeSong.loop = true;
