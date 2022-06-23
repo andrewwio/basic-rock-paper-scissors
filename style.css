@@ -14,7 +14,10 @@ div, button {
   text-align: center;
 }
 .name-input {
+  padding: 0.3rem;
   margin: 2rem;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .name-titles {
