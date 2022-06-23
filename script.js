@@ -20,13 +20,17 @@ const playerScore = document.querySelector(".player-score");
 const computerScore = document.querySelector(".computer-score");
 const resetBtn = document.querySelector(".reset__btn");
 const scoreContainer = document.querySelector(".score__container");
+const nameTitles = document.querySelector(".name-titles");
 const startScreenContainer = document.querySelector(".start-screen__container");
+const playerTitle = document.querySelector(".player-title");
+const nameInput = document.querySelector(".name-input");
 const errorAbbreviation = document.querySelector(".error");
 
 // BUTTONS
 
 startScreenBtn.addEventListener("click", () => {
   displayGamePlayContainer();
+  addPlayerName();
   musicPlay();
   buttonSound();
 });
@@ -111,8 +115,8 @@ document.querySelector(".reset").addEventListener("click", () => {
   computerPoints = 0;
   gameResultContainer.style.display = "none";
   gameplayContainer.style.display = "block";
-  playerScore.innerHTML = "Player - 0";
-  computerScore.innerHTML = "Computer - 0";
+  playerScore.innerHTML = "0";
+  computerScore.innerHTML = "0";
   playerSelectionDisplay.innerHTML = "";
   computerSelectionDisplay.innerHTML = "";
   roundResult.innerHTML = "";
@@ -125,9 +129,18 @@ document.querySelector(".reset").addEventListener("click", () => {
 
 function displayGamePlayContainer() {
   scoreContainer.style.display = "block";
+  nameTitles.style.display = "block";
   gameplayContainer.style.display = 'block';
   reset.style.display = 'block';
   startScreenContainer.style.display = 'none';
+}
+
+function addPlayerName() {
+  var playerName = nameInput.value;
+  playerTitle.innerHTML = playerName;
+  if (playerName === "") {
+    playerTitle.innerHTML = "Player";
+  }
 }
 
 function displayCountdown() {
@@ -185,8 +198,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-  playerScore.innerHTML = `Player - ${playerPoints}`;
-  computerScore.innerHTML = `Computer - ${computerPoints}`;
+  playerScore.innerHTML = `${playerPoints}`;
+  computerScore.innerHTML = `${computerPoints}`;
 }
 
 function updateRoundResult() {
